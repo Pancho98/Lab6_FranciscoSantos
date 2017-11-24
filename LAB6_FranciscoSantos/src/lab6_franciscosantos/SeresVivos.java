@@ -59,7 +59,7 @@ public class SeresVivos {
 
     @Override
     public String toString() {
-        return "SeresVivos{" + "raza=" + raza + '}';
+        return raza+"\n";
     }
     
     

@@ -5,7 +5,19 @@
  */
 package lab6_franciscosantos;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,36 +42,139 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_seresVivos = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tf_raza = new javax.swing.JTextField();
+        tf_planeta = new javax.swing.JTextField();
+        sp_ki = new javax.swing.JSpinner();
+        sp_edad = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jd_universo = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tf_nombreUniverso = new javax.swing.JTextField();
         bt_CrearUniverso = new javax.swing.JButton();
-        jl_AgregarSeres = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jl_modificar = new javax.swing.JLabel();
-        jl_eliminar = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jd_Modificar = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        tf_raza1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        sp_ki1 = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        sp_edad1 = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
+        tf_planeta1 = new javax.swing.JTextField();
+        bt_modificar = new javax.swing.JButton();
+        cb_Seres = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jd_eliminar = new javax.swing.JDialog();
+        cb_eliminar = new javax.swing.JComboBox<>();
+        bt_eliminar = new javax.swing.JButton();
+        bt_Universo = new javax.swing.JButton();
+        bt_agregarSer = new javax.swing.JButton();
+        bt_Modificar = new javax.swing.JButton();
+        bt_Eliminar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu = new javax.swing.JMenu();
+        bt_Cargar = new javax.swing.JMenuItem();
+        bt_Guardar = new javax.swing.JMenuItem();
+
+        jLabel2.setText("Raza");
+
+        jLabel5.setText("Ki");
+
+        jLabel6.setText("Edad");
+
+        jLabel7.setText("Planeta");
+
+        sp_ki.setModel(new javax.swing.SpinnerNumberModel(500, 0, null, 100));
+
+        sp_edad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        jButton1.setText("Guardar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Script MT Bold", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Nuevo Ser Vivo");
 
         javax.swing.GroupLayout jd_seresVivosLayout = new javax.swing.GroupLayout(jd_seresVivos.getContentPane());
         jd_seresVivos.getContentPane().setLayout(jd_seresVivosLayout);
         jd_seresVivosLayout.setHorizontalGroup(
             jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_seresVivosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(199, 199, 199))
+            .addGroup(jd_seresVivosLayout.createSequentialGroup()
+                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_seresVivosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(65, 65, 65)
+                        .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_seresVivosLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jd_seresVivosLayout.setVerticalGroup(
             jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_seresVivosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jButton1)
+                .addGap(37, 37, 37))
         );
 
+        jd_universo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Script MT Bold", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Universo");
+        jd_universo.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 192, 48));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 255, 204));
         jLabel3.setText("Nombre Del Universo");
+        jd_universo.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 165, -1, -1));
+        jd_universo.getContentPane().add(tf_nombreUniverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 162, 250, -1));
 
         bt_CrearUniverso.setText("Crear Universo");
         bt_CrearUniverso.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,113 +182,282 @@ public class Principal extends javax.swing.JFrame {
                 bt_CrearUniversoMouseClicked(evt);
             }
         });
+        jd_universo.getContentPane().add(bt_CrearUniverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 274, -1, -1));
 
-        javax.swing.GroupLayout jd_universoLayout = new javax.swing.GroupLayout(jd_universo.getContentPane());
-        jd_universo.getContentPane().setLayout(jd_universoLayout);
-        jd_universoLayout.setHorizontalGroup(
-            jd_universoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_universoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bt_CrearUniverso)
-                .addGap(164, 164, 164))
-            .addGroup(jd_universoLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jd_universoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(tf_nombreUniverso, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-        jd_universoLayout.setVerticalGroup(
-            jd_universoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_universoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(jd_universoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tf_nombreUniverso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(bt_CrearUniverso)
-                .addGap(45, 45, 45))
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_franciscosantos/universos.png"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        jd_universo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 320));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jd_Modificar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jl_AgregarSeres.setText("Agregar Seres Vivos");
-        jl_AgregarSeres.setEnabled(false);
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Raza");
+        jd_Modificar.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, -1));
+        jd_Modificar.getContentPane().add(tf_raza1, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 151, 170, -1));
 
-        jLabel2.setText("Agregar Universo");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Ki");
+        jd_Modificar.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 222, -1, -1));
+
+        sp_ki1.setModel(new javax.swing.SpinnerNumberModel(500, 0, null, 100));
+        jd_Modificar.getContentPane().add(sp_ki1, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 219, 97, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Edad");
+        jd_Modificar.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, -1, -1));
+
+        sp_edad1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jd_Modificar.getContentPane().add(sp_edad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 280, 97, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Planeta");
+        jd_Modificar.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        jd_Modificar.getContentPane().add(tf_planeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 337, 170, -1));
+
+        bt_modificar.setText("Modificar");
+        bt_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                bt_modificarMouseClicked(evt);
+            }
+        });
+        jd_Modificar.getContentPane().add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
+        cb_Seres.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_SeresItemStateChanged(evt);
+            }
+        });
+        jd_Modificar.getContentPane().add(cb_Seres, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 81, 109, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Seres Existentes");
+        jd_Modificar.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_franciscosantos/fusion.jpg"))); // NOI18N
+        jLabel15.setText("jLabel15");
+        jd_Modificar.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
+
+        bt_eliminar.setText("Eliminar");
+        bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_eliminarMouseClicked(evt);
             }
         });
 
-        jl_modificar.setText("Modificar Universo");
-        jl_modificar.setEnabled(false);
+        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
+        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
+        jd_eliminarLayout.setHorizontalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(bt_eliminar)))
+                .addContainerGap(244, Short.MAX_VALUE))
+        );
+        jd_eliminarLayout.setVerticalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(bt_eliminar)
+                .addGap(90, 90, 90))
+        );
 
-        jl_eliminar.setText("Eliminar");
-        jl_eliminar.setEnabled(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenu3.setText("Archivo");
+        bt_Universo.setText("Agregar Universo");
+        bt_Universo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_UniversoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_Universo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 160, -1));
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Guardar Archivo");
-        jMenu3.add(jMenuItem1);
+        bt_agregarSer.setText("Agregar Seres Vivos");
+        bt_agregarSer.setEnabled(false);
+        bt_agregarSer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_agregarSerMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_agregarSer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 180, -1));
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Abrir Archivo");
-        jMenu3.add(jMenuItem2);
+        bt_Modificar.setText("Modificar");
+        bt_Modificar.setEnabled(false);
+        bt_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ModificarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 180, -1));
 
-        jMenuBar1.add(jMenu3);
+        bt_Eliminar.setText("Eliminar");
+        bt_Eliminar.setEnabled(false);
+        bt_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_EliminarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 170, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Francisco Santos\\Pictures\\Zeno-sama.jpg")); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 480));
+
+        menu.setText("Archivo");
+
+        bt_Cargar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        bt_Cargar.setText("Abrir Archivo");
+        bt_Cargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CargarActionPerformed(evt);
+            }
+        });
+        menu.add(bt_Cargar);
+
+        bt_Guardar.setText("Guardar Archivo");
+        bt_Guardar.setEnabled(false);
+        bt_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_GuardarActionPerformed(evt);
+            }
+        });
+        menu.add(bt_Guardar);
+
+        jMenuBar1.add(menu);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_modificar)
-                    .addComponent(jl_eliminar)
-                    .addComponent(jLabel2)
-                    .addComponent(jl_AgregarSeres))
-                .addContainerGap(425, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel2)
-                .addGap(54, 54, 54)
-                .addComponent(jl_AgregarSeres)
-                .addGap(96, 96, 96)
-                .addComponent(jl_modificar)
-                .addGap(60, 60, 60)
-                .addComponent(jl_eliminar)
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void bt_CrearUniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CrearUniversoMouseClicked
+    u = new Universo(tf_nombreUniverso.getText(), "./"+tf_nombreUniverso.getText()+".txt");
+        JOptionPane.showMessageDialog(null, "Gracias Señor Zeno-Sama Por Crear El Universo: "+tf_nombreUniverso.getText());
+        bt_agregarSer.setEnabled(true);
+        bt_Modificar.setEnabled(true);
+        bt_Eliminar.setEnabled(true);
+        bt_Guardar.setEnabled(true);
+        bt_Universo.setEnabled(false);
+        jd_universo.dispose();
+    }//GEN-LAST:event_bt_CrearUniversoMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        u.setSerVivo(new SeresVivos(tf_raza.getText(), (Integer)sp_ki.getValue(), (Integer)sp_edad.getValue(), tf_planeta.getText()));
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Seres.getModel();
+                modelo.addElement(u.getListaSeres().get(cont));
+                cb_Seres.setModel(modelo);
+                cb_eliminar.setModel(modelo);
+        JOptionPane.showMessageDialog(null, "Gracias Señor Zeno-Sama Por Crear El Ser: "+tf_raza.getText());
+        //
+        cont++;
+        //
+        tf_raza.setText("");
+        sp_ki.setValue(500);
+        sp_edad.setValue(1);
+        tf_planeta.setText("");
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void bt_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarMouseClicked
+        int contS=cb_Seres.getSelectedIndex();
+        u.getListaSeres().get(contS).setRaza(tf_raza1.getText());
+        u.getListaSeres().get(contS).setKi((Integer)sp_ki1.getValue());
+        u.getListaSeres().get(contS).setAños((Integer)sp_edad1.getValue());
+        u.getListaSeres().get(contS).setPlaneta(tf_planeta1.getText());
+        
+    }//GEN-LAST:event_bt_modificarMouseClicked
+
+    private void cb_SeresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_SeresItemStateChanged
+        
+        if (evt.getStateChange() == 2) {
+            seleccionado=(SeresVivos)cb_Seres.getSelectedItem();
+            this.tf_raza1.setText(seleccionado.getRaza());
+            this.sp_edad1.setValue(seleccionado.getAños());
+            this.sp_ki1.setValue(seleccionado.getKi());
+            this.tf_planeta1.setText(seleccionado.getPlaneta());
+        }
+    }//GEN-LAST:event_cb_SeresItemStateChanged
+
+    private void bt_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminarMouseClicked
+        int contE=cb_eliminar.getSelectedIndex();
+        u.getListaSeres().remove(contE);
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_eliminar.getModel();
+        modelo.removeElementAt(contE);
+    }//GEN-LAST:event_bt_eliminarMouseClicked
+
+    private void bt_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_GuardarActionPerformed
+        try {
+            u.escribirArchivo();
+        } catch (IOException ex) {
+            
+        }
+      
+    }//GEN-LAST:event_bt_GuardarActionPerformed
+
+    private void bt_CargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CargarActionPerformed
+        Universo uni = new Universo();
+        uni.Leer();
+        uni.cargarArchivo();
+        u=uni;
+        Reload();
+        bt_Guardar.setEnabled(true);
+        bt_agregarSer.setEnabled(true);
+        bt_Modificar.setEnabled(true);
+        bt_Eliminar.setEnabled(true);
+        bt_Guardar.setEnabled(true);
+        bt_Universo.setEnabled(false);
+        System.out.println(uni.getListaSeres());
+    }//GEN-LAST:event_bt_CargarActionPerformed
+
+    private void bt_UniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_UniversoMouseClicked
         jd_universo.pack();
         jd_universo.setModal(true);
         jd_universo.setVisible(true);
         jd_universo.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_bt_UniversoMouseClicked
 
-    private void bt_CrearUniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CrearUniversoMouseClicked
-        
-    }//GEN-LAST:event_bt_CrearUniversoMouseClicked
+    private void bt_agregarSerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarSerMouseClicked
+        jd_seresVivos.pack();
+        jd_seresVivos.setModal(true);
+        jd_seresVivos.setVisible(true);
+        jd_seresVivos.setLocationRelativeTo(null);
+    }//GEN-LAST:event_bt_agregarSerMouseClicked
 
+    private void bt_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ModificarMouseClicked
+        jd_Modificar.pack();
+        jd_Modificar.setModal(true);
+        jd_Modificar.setVisible(true);
+        jd_Modificar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_bt_ModificarMouseClicked
+
+    private void bt_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EliminarMouseClicked
+        jd_eliminar.pack();
+        jd_eliminar.setModal(true);
+        jd_eliminar.setVisible(true);
+        jd_eliminar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_bt_EliminarMouseClicked
+    
+    
+    public void Reload(){
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Seres.getModel();
+        for (SeresVivos sere : u.getListaSeres()) {
+            modelo.addElement(sere);
+        }
+        cb_Seres.setModel(modelo);
+        cb_eliminar.setModel(modelo);
+    }
     /**
      * @param args the command line arguments
      */
@@ -210,24 +494,51 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem bt_Cargar;
     private javax.swing.JButton bt_CrearUniverso;
+    private javax.swing.JButton bt_Eliminar;
+    private javax.swing.JMenuItem bt_Guardar;
+    private javax.swing.JButton bt_Modificar;
+    private javax.swing.JButton bt_Universo;
+    private javax.swing.JButton bt_agregarSer;
+    private javax.swing.JButton bt_eliminar;
+    private javax.swing.JButton bt_modificar;
+    private javax.swing.JComboBox<String> cb_Seres;
+    private javax.swing.JComboBox<String> cb_eliminar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JDialog jd_Modificar;
+    private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_seresVivos;
     private javax.swing.JDialog jd_universo;
-    private javax.swing.JLabel jl_AgregarSeres;
-    private javax.swing.JLabel jl_eliminar;
-    private javax.swing.JLabel jl_modificar;
+    private javax.swing.JMenu menu;
+    private javax.swing.JSpinner sp_edad;
+    private javax.swing.JSpinner sp_edad1;
+    private javax.swing.JSpinner sp_ki;
+    private javax.swing.JSpinner sp_ki1;
     private javax.swing.JTextField tf_nombreUniverso;
+    private javax.swing.JTextField tf_planeta;
+    private javax.swing.JTextField tf_planeta1;
+    private javax.swing.JTextField tf_raza;
+    private javax.swing.JTextField tf_raza1;
     // End of variables declaration//GEN-END:variables
-    ArrayList<SeresVivos> seres = new ArrayList();
-    ArrayList<Universo> universos=new ArrayList();
-    Universo universo_seleccionado;
-    SeresVivos serVivo_seleccionado;
-    
+    Universo u;
+    SeresVivos seleccionado;
+    ArrayList<SeresVivos>seres = new ArrayList();
+    int cont =0;
 }
