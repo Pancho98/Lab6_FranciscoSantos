@@ -75,6 +75,7 @@ public class Principal extends javax.swing.JFrame {
         jd_eliminar = new javax.swing.JDialog();
         cb_eliminar = new javax.swing.JComboBox<>();
         bt_eliminar = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
         bt_Universo = new javax.swing.JButton();
         bt_agregarSer = new javax.swing.JButton();
         bt_Modificar = new javax.swing.JButton();
@@ -214,36 +215,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel15.setText("jLabel15");
         jd_Modificar.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
 
+        jd_eliminar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cb_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_eliminarActionPerformed(evt);
+            }
+        });
+        jd_eliminar.getContentPane().add(cb_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 213, 41));
+
         bt_eliminar.setText("Eliminar");
         bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_eliminarMouseClicked(evt);
             }
         });
+        jd_eliminar.getContentPane().add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
-        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
-        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
-        jd_eliminarLayout.setHorizontalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_eliminarLayout.createSequentialGroup()
-                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addComponent(bt_eliminar)))
-                .addContainerGap(244, Short.MAX_VALUE))
-        );
-        jd_eliminarLayout.setVerticalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_eliminarLayout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(bt_eliminar)
-                .addGap(90, 90, 90))
-        );
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_franciscosantos/eliminar.jpg"))); // NOI18N
+        jd_eliminar.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 340));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -424,6 +414,10 @@ public class Principal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cb_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_eliminarActionPerformed
     
     
     public void Reload(){
@@ -490,6 +484,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
