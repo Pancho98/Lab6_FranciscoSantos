@@ -52,6 +52,7 @@ public class Principal extends javax.swing.JFrame {
         sp_edad = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jd_universo = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -84,17 +85,31 @@ public class Principal extends javax.swing.JFrame {
         bt_Cargar = new javax.swing.JMenuItem();
         bt_Guardar = new javax.swing.JMenuItem();
 
+        jd_seresVivos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Raza");
+        jd_seresVivos.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 109, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Ki");
+        jd_seresVivos.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 177, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Edad");
+        jd_seresVivos.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 238, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Planeta");
+        jd_seresVivos.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 299, -1, -1));
+        jd_seresVivos.getContentPane().add(tf_raza, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 106, 170, -1));
+        jd_seresVivos.getContentPane().add(tf_planeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 296, 170, -1));
 
         sp_ki.setModel(new javax.swing.SpinnerNumberModel(500, 0, null, 100));
+        jd_seresVivos.getContentPane().add(sp_ki, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 174, 97, -1));
 
         sp_edad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jd_seresVivos.getContentPane().add(sp_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 235, 97, -1));
 
         jButton1.setText("Guardar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,65 +117,22 @@ public class Principal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jd_seresVivos.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Script MT Bold", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Nuevo Ser Vivo");
+        jd_seresVivos.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 11, 253, 61));
 
-        javax.swing.GroupLayout jd_seresVivosLayout = new javax.swing.GroupLayout(jd_seresVivos.getContentPane());
-        jd_seresVivos.getContentPane().setLayout(jd_seresVivosLayout);
-        jd_seresVivosLayout.setHorizontalGroup(
-            jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_seresVivosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(199, 199, 199))
-            .addGroup(jd_seresVivosLayout.createSequentialGroup()
-                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_seresVivosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(65, 65, 65)
-                        .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jd_seresVivosLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-        jd_seresVivosLayout.setVerticalGroup(
-            jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_seresVivosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jd_seresVivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(jButton1)
-                .addGap(37, 37, 37))
-        );
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_franciscosantos/Crear.jpg"))); // NOI18N
+        jLabel16.setText("jLabel16");
+        jd_seresVivos.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
         jd_universo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -448,6 +420,10 @@ public class Principal extends javax.swing.JFrame {
         jd_eliminar.setVisible(true);
         jd_eliminar.setLocationRelativeTo(null);
     }//GEN-LAST:event_bt_EliminarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     public void Reload(){
@@ -513,6 +489,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
